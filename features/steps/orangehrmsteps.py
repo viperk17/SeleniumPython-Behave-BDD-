@@ -3,19 +3,19 @@ from selenium import webdriver
 
 @given(u'launch chrome browser')
 def launchBrowser(context):
-    raise NotImplementedError(u'STEP: Given launch chrome browser')
-
+    context.driver = webdriver.Chrome(executable_path="/home/flyboypk/Downloads/chromedriver")
 
 @when(u'open orange hrm homepage')
 def openHomepage(context):
-    raise NotImplementedError(u'STEP: When open orange hrm homepage')
+    context.driver.get("https://opensource-demo.orangehrmlive.com/")
 
 
 @then(u'verify that the logo present on page')
 def verifyLogo(context):
-    raise NotImplementedError(u'STEP: Then verify that the logo present on page')
+    status = context.driver.find_element_by_xpath("//div[@id='divLogo']//img").is_displayed()
+    assert status is True
 
 
 @then(u'close browser')
 def closeBrowser(context):
-    raise NotImplementedError(u'STEP: Then close browser')
+    context.driver.close()
