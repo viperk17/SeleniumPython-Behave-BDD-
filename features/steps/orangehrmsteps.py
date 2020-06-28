@@ -1,7 +1,6 @@
 from behave import *
 from selenium import webdriver
 
-
 @given(u'launch chrome browser')
 def launchBrowser(context):
     context.driver = webdriver.Chrome(executable_path="/home/flyboypk/Downloads/chromedriver")
