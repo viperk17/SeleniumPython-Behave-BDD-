@@ -1,7 +1,6 @@
 from behave import *
 from selenium import webdriver
 
-
 @given(u'launch chrome browser')
 def launchBrowser(context):
     context.driver = webdriver.Chrome(executable_path="/home/flyboypk/Downloads/chromedriver")
@@ -15,7 +14,6 @@ def openHomepage(context):
 def verifyLogo(context):
     status = context.driver.find_element_by_xpath("//div[@id='divLogo']//img").is_displayed()
     assert status is True
-
 
 @then(u'close browser')
 def closeBrowser(context):
